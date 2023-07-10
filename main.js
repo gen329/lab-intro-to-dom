@@ -1,17 +1,64 @@
 console.log("script is connected")
 
-const firstSection= document.querySelector("section")
+const section = document.querySelector("main").firstElementChild;
+const posts = document.querySelector(".posts");
+const header = document.querySelector("header");
+const body = document.querySelector("body");
 
-firstSection.classList.add("featured")
+const stopPlanning = document.createElement("article");
+const img = document.createElement("img");
+const h3 = document.createElement("h3");
+const aside =document.createElement("aside");
+const a = document.createElement("a");
 
-const newArticle= document.createElement("article")
-newArticle.innerHTML= `<img src="./images/paul-gilmore-unsplash.jpg" alt="Image of a mountain in front of a lake." />
-<h3>Stop Planning</h3>
-<p>You -- yes you! You're an over-planner, I can tell. It's time to stop planning so much and instead focusing on relaxing. Taking a break at all is so stressful these days; why add to the stress by overworking yourself?</p>
-<aside>
-  <p><span><strong>Read Time:</strong> 4 Minutes</span><a href="#">Read more...</a></p>
-</aside>
-`;
+const span = document.createElement("span");
+const strong = document.createElement("strong");
 
-const sectionPosts= document.querySelector("section.posts")
-sectionPosts.
+const li = document.createElement("li");
+
+img.setAttribute("src", "/images/paul-gilmore-unspash.jpg");
+img.setAttribute("src", "/images/jake-blucker-unsplash.jpg");
+
+h3.innerText = 'Stop Planning';
+
+const firstPara = document.createElement('p');
+const secondPara = document.createElement('p');
+a.setAttribute("href", "#");
+a.innerText = 'Read more...';
+
+firstPara.innerText = `You -- yes you! You're an over-planner, I can tell. It's time to stop
+planning so much and instead focusing on relaxing. Taking a break at all is
+so stressful these days; why add to the stress by overworking yourself?';`
+
+stopPlanning.append(img);
+stopPlanning.append(h3);
+stopPlanning.append(firstPara);
+stopPlanning.append(aside);
+
+span.innerHTML = `<strong>Read Time:</strong> 4 Minutes`;
+secondPara.append(span);
+secondPara.append(a);
+aside.append(secondPara);
+posts.append(stopPlanning);
+
+section.classList.add("featured");
+
+const firstArticle = posts.children[0];
+
+const secondArticle = posts.children[i];
+
+posts.replaceChildren(secondArticle, firstArticle, stopPlanning);
+header[0].remove();
+
+const featured = document.querySelector(".featured");
+
+
+const removedSpan = featured.children[1].lastChild.previousSibling.childNodes[1].firstChild.nextSibling;
+removedSpan.remove();
+stopPlanning.remove();
+
+for (let i = 0; i < posts.children.length; i++){
+    posts.children[i].childNodes[3].remove();
+}
+
+
